@@ -15727,7 +15727,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var error = __webpack_require__(4);
+	/* WEBPACK VAR INJECTION */(function(process) {var error = __webpack_require__(4);
 	var utils = __webpack_require__(3);
 
 	exports.MATCH = function(lookupValue, lookupArray, matchType) {
@@ -15790,6 +15790,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	exports.VLOOKUP = function (needle, table, index, rangeLookup) {
+	  if (process && process.env && process.env.NODE_ENV === 'compile') {
+	    return 0;
+	  }
+
 	  if (!needle || !table || !index) {
 	    return error.na;
 	  }
@@ -15825,6 +15829,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	exports.HLOOKUP = function (needle, table, index, rangeLookup) {
+	  if (process && process.env && process.env.NODE_ENV === 'compile') {
+	    return 0;
+	  }
+	  
 	  if (!needle || !table || !index) {
 	    return error.na;
 	  }
@@ -15845,6 +15853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return error.na;
 	};
 
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }
 /******/ ])
