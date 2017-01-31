@@ -3376,7 +3376,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      count++;
 	    }
 	  }
-	  result = sigma / count;;
+	  result = sigma / count;
 
 	  if (isNaN(result)) {
 	    result = error.num;
@@ -11640,7 +11640,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var error = __webpack_require__(4);
+	/* WEBPACK VAR INJECTION */(function(process) {var error = __webpack_require__(4);
 
 	// TODO
 	exports.CELL = function() {
@@ -11742,6 +11742,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	exports.NA = function() {
+	  if (process && process.env && process.env.NODE_ENV === 'compile') {
+	    return 0;
+	  }
+	  
 	  return error.na;
 	};
 
@@ -11774,6 +11778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ },
 /* 51 */
@@ -14654,7 +14659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  // Return error if either rate or par are lower than or equal to zero
 	  if (rate <= 0 || par <= 0) {
-	    return error.num
+	    return error.num;
 	  }
 
 	  // Return error if frequency is neither 1, 2, or 4
