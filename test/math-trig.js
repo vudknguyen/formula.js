@@ -665,6 +665,7 @@ describe('Math & Trig', function() {
       [2, 2],
       [3, 3]
     ]).should.equal(24);
+    mathTrig.SUM(['71.40', '29.40', '4.20']).should.equal(105);
     mathTrig.SUM(1, 'invalid').should.equal(1);
   });
 
