@@ -43,6 +43,7 @@ describe('Lookup Reference', function () {
     lookup.VLOOKUP('ji', [['jim', 2], ['jam', 4]], 3, false).should.equal(error.na);
     lookup.VLOOKUP(3, [[1, 2], [5, 4]], 2, true).should.equal(2);
     lookup.VLOOKUP(6, [[1, 2], [5, 4]], 2, true).should.equal(4);
+    lookup.VLOOKUP(1, [[2, 22], [4, 44]], 2, true).should.equal(error.na);
   });
 
   it('HLOOKUP', function () {
