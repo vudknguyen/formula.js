@@ -477,6 +477,7 @@ describe('Math & Trig', function() {
 
   it('PRODUCT', function() {
     mathTrig.PRODUCT([5, 15, 30]).should.equal(2250);
+    mathTrig.PRODUCT([6.30, 2.00, 1.30, 1.25]).should.equal(20.475);
     mathTrig.PRODUCT([5, 'invalid', 30]).should.equal(error.value);
   });
 
