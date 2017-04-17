@@ -775,7 +775,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	  var result = 1;
 	  for (var i = 0; i < args.length; i++) {
-	    result *= args[i];
+	    result = (new Decimal(result)).times(args[i]).toNumber();
 	  }
 	  return result;
 	};
@@ -20625,7 +20625,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	        } else {
 	          var endRange = utils.parseNumber(table[i + 1][0]) - 1;
-	          if (needle >= startRange && needle <= endRange) {
+	          if(needle < startRange) {
+	            return error.na;
+	          } else if (needle >= startRange && needle <= endRange) {
 	            return (index < (row.length + 1) ? row[index - 1] : error.ref);
 	          }
 	        }
@@ -20643,7 +20645,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (process && process.env && process.env.NODE_ENV === 'compile') {
 	    return 0;
 	  }
-	  
+
 	  if (!needle || !table || !index) {
 	    return error.na;
 	  }
