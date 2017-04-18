@@ -44,6 +44,7 @@ describe('Lookup Reference', function () {
     lookup.VLOOKUP(3, [[1, 2], [5, 4]], 2, true).should.equal(2);
     lookup.VLOOKUP(6, [[1, 2], [5, 4]], 2, true).should.equal(4);
     lookup.VLOOKUP(1, [[2, 22], [4, 44]], 2, true).should.equal(error.na);
+    lookup.VLOOKUP('JAM', [['jim', 2], ['jam', 4]], 2, false).should.equal(4);
   });
 
   it('HLOOKUP', function () {
@@ -63,6 +64,7 @@ describe('Lookup Reference', function () {
     lookup.HLOOKUP('li', [['jim', 'jam'], [1, 4]], 2, true).should.equal(error.na);
     lookup.HLOOKUP('ji', [['jim', 'jam'], [1, 4]], 3, true).should.equal(error.ref);
     lookup.HLOOKUP('ji', [['jim', 'jam'], [1, 4]], 3, false).should.equal(error.na);
+    lookup.HLOOKUP('JAM', [['jim', 'jam'], [1, 4]], 2, false).should.equal(4);
   });
 
   describe('Test with node_env compile', function () {
