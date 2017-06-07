@@ -137,4 +137,25 @@ describe('Information', function() {
     information.TYPE(error.na).should.equal(16);
     information.TYPE([1]).should.equal(64);
   });
+
+   describe('Test with node_env compile', function () {
+    var systemNodeEnv;
+
+    before(function () {
+      if (!process) {
+        process = { env: { NODE_ENV: '' } }
+      }
+
+      systemNodeEnv = process.env.NODE_ENV;
+      process.env.NODE_ENV = 'compile';
+    });
+
+    it('NA', function () {
+      information.NA().should.equal(0);
+    });
+
+    after(function() {
+      process.env.NODE_ENV = systemNodeEnv;
+    });
+  });
 });
